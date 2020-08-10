@@ -2,7 +2,6 @@ package hotramen.apps.projectcs;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,7 +35,7 @@ public class FeedAdapter extends RealmRecyclerViewAdapter<Thread, FeedAdapter.Vi
 
             author = itemView.findViewById(R.id.tvAuthor);
             title = itemView.findViewById(R.id.tvTitle);
-            content = itemView.findViewById(R.id.textView3);
+            content = itemView.findViewById(R.id.tvContent);
 
         }
     }
@@ -61,6 +60,7 @@ public class FeedAdapter extends RealmRecyclerViewAdapter<Thread, FeedAdapter.Vi
         // copy all the values needed to the appropriate views
         holder.author.setText(poster);
         holder.title.setText(t.getTitle());
+        holder.content.setText(t.getContent());
 
         // NOTE: MUST BE A STRING String.valueOf() converts most types to a string
 

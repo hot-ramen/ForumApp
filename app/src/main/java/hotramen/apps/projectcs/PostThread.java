@@ -50,8 +50,7 @@ public class PostThread extends AppCompatActivity {
 
     @Click(R.id.btnCancel)
     public void cancel(View view){
-        Intent i = new Intent(this,Home.class);
-        startActivity(i);
+        finish();
     }
 
     @Click(R.id.btnPost)

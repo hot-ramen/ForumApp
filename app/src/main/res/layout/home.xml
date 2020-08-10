@@ -7,16 +7,17 @@
     tools:context=".Home">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivDP"
         android:layout_width="51dp"
         android:layout_height="48dp"
+        android:background="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.054"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/ic_launcher_foreground" />
 
     <TextView
         android:id="@+id/tvUsername"
@@ -25,19 +26,19 @@
         android:text="username"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintHorizontal_bias="0.278"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.058" />
 
     <TextView
         android:id="@+id/tvBio"
-        android:layout_width="138dp"
-        android:layout_height="45dp"
+        android:layout_width="174dp"
+        android:layout_height="44dp"
         android:text="bio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.123" />
@@ -67,18 +68,6 @@
         app:layout_constraintVertical_bias="0.054" />
 
     <Button
-        android:id="@+id/btnViewFeed"
-        android:layout_width="127dp"
-        android:layout_height="51dp"
-        android:text="View Feed"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.137"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.951" />
-
-    <Button
         android:id="@+id/btnSignOut"
         android:layout_width="92dp"
         android:layout_height="51dp"
@@ -92,8 +81,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFeed"
-        android:layout_width="414dp"
-        android:layout_height="469dp"
-        tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="157dp" />
+        android:layout_width="373dp"
+        android:layout_height="446dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.607" />
 </androidx.constraintlayout.widget.ConstraintLayout>

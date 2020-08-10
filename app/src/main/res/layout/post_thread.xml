@@ -28,7 +28,6 @@
         android:ems="10"
         android:hint="type here..."
         android:inputType="textPersonName"
-        android:singleLine="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

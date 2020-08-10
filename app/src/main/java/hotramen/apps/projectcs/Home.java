@@ -8,6 +8,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
@@ -38,10 +40,14 @@ public class Home extends AppCompatActivity {
     @ViewById
     TextView tvBio;
 
+    @ViewById
+    ImageView ivDP;
+
 
     Realm realm;
 
     FeedAdapter adapter;
+
 
 
     @AfterViews
@@ -49,6 +55,8 @@ public class Home extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("login_info", MODE_PRIVATE);
         String userID = sharedPreferences.getString("uuid", null);
+
+        realm = Realm.getDefaultInstance();
 
         User userLoggedIn = realm.where(User.class).equalTo("uuid", userID).findFirst();
 
