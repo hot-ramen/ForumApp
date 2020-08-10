@@ -61,7 +61,7 @@ public class Register extends AppCompatActivity {
             newUser.setUuid(UUID.randomUUID().toString());
             newUser.setName(userField);
             newUser.setPassword(passField);
-            newUser.setBio("Add a bio now!");
+            newUser.setBio(" ");
 
 
             long count = 0;

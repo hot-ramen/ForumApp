@@ -83,8 +83,7 @@ public class PostThread extends AppCompatActivity {
                 Toast t = Toast.makeText(this, "Posted: " + count, Toast.LENGTH_LONG);
                 t.show();
 
-                Intent intent = new Intent(this,Home.class);
-                startActivity(intent);
+               finish();
 
             } catch (RealmPrimaryKeyConstraintException e) {
                 e.printStackTrace();
@@ -114,8 +113,7 @@ public class PostThread extends AppCompatActivity {
                 Toast t = Toast.makeText(this, "Posted: " + count, Toast.LENGTH_LONG);
                 t.show();
 
-                Intent intent = new Intent(this,Home.class);
-                startActivity(intent);
+               finish();
 
             } catch (RealmPrimaryKeyConstraintException e) {
                 e.printStackTrace();

@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminHome_"></activity>
+        <activity android:name=".AddBio_"></activity>
+        <activity android:name=".AdminHome_" />
         <activity android:name=".PostThread_" />
         <activity android:name=".Home_" />
         <activity android:name=".EditActivity_" />

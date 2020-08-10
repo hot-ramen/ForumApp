@@ -5,10 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -60,11 +57,19 @@ public class Home extends AppCompatActivity {
 
         User userLoggedIn = realm.where(User.class).equalTo("uuid", userID).findFirst();
 
+        assert userLoggedIn != null;
         String username = userLoggedIn.getName();
         String bio = userLoggedIn.getBio();
 
         tvUsername.setText(username);
-        tvBio.setText(bio);
+
+        if(bio.equals(" ")){
+            tvBio.setText("Add a bio now!");
+        }
+        else{
+            tvBio.setText(bio);
+        }
+
 
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
@@ -79,13 +84,12 @@ public class Home extends AppCompatActivity {
 
         adapter = new FeedAdapter(this, list, true);
         rvFeed.setAdapter(adapter);
-
-        //spaghetti code pa to copy past lang for init
     }
 
-    @Click(R.id.btnSignOut)
+    @Click(R.id.btnLogOut)
     public void close() {
         finish();
+        MainActivity_.intent(this).start();
     }
 
     @Click(R.id.btnEditProf)
@@ -106,6 +110,14 @@ public class Home extends AppCompatActivity {
         PostThread_.intent(this)
                 .author(userID)
                 .start();
+
+    }
+
+    @Click(R.id.btnBio)
+    public void addbio(){
+        AddBio_.intent(this)
+                .start();
+
     }
 
 

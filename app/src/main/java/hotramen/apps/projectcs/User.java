@@ -60,6 +60,8 @@ public class User extends RealmObject {
                 "uuid='" + uuid + '\'' +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
+                ", bio='" + bio + '\'' +
+                ", threads=" + threads +
                 '}';
     }
 }

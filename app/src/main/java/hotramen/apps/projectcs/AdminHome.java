@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
 import android.view.View;
 
 import org.androidannotations.annotations.AfterViews;
@@ -55,9 +54,10 @@ public class AdminHome extends AppCompatActivity {
     public void clear(){
 
         RealmResults<User> list = realm.where(User.class).findAll();
-
+        RealmResults<Thread> threads = realm.where(Thread.class).findAll();
         realm.beginTransaction();
         list.deleteAllFromRealm();
+        threads.deleteAllFromRealm();
         realm.commitTransaction();
 
     }
@@ -91,5 +91,10 @@ public class AdminHome extends AppCompatActivity {
         EditActivity_.intent(this)
                 .id(id)
                 .start();
+    }
+
+    @Click(R.id.btnSignOutAdmin)
+    public void adminsignout(){
+        finish();
     }
 }
