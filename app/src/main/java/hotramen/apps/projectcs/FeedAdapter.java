@@ -1,6 +1,7 @@
 package hotramen.apps.projectcs;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -25,19 +26,62 @@ public class FeedAdapter extends RealmRecyclerViewAdapter<Thread, FeedAdapter.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView uuid;
-        TextView name;
-        ImageButton delete;
-        ImageButton edit;
+        TextView author;
+        TextView title;
+        TextView content;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            uuid = itemView.findViewById(R.id.tvUuid);
-            name = itemView.findViewById(R.id.tvName);
+            author = itemView.findViewById(R.id.tvAuthor);
+            title = itemView.findViewById(R.id.tvTitle);
+            content = itemView.findViewById(R.id.textView3);
 
-            delete = itemView.findViewById(R.id.ibtnDelete);
-            edit =  itemView.findViewById(R.id.ibtnEdit);
         }
     }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = activity.getLayoutInflater().inflate(R.layout.row_layout_home, parent, false);
+
+        return new ViewHolder(v);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Thread t = getItem(position);
+
+        User author = t.getAuthor();
+
+        String poster = author.getName();
+
+
+        // copy all the values needed to the appropriate views
+        holder.author.setText(poster);
+        holder.title.setText(t.getTitle());
+
+        // NOTE: MUST BE A STRING String.valueOf() converts most types to a string
+
+
+        // do any other initializations here as well,  e.g. Button listeners
+//        holder.delete.setTag(t);
+//        holder.delete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                activity.delete(view);
+//            }
+//        });
+
+//        holder.edit.setTag(u);
+//        holder.edit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                activity.edit(view);
+//            }
+//        });
+    }
+
+
 }

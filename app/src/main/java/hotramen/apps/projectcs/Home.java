@@ -41,6 +41,8 @@ public class Home extends AppCompatActivity {
 
     Realm realm;
 
+    FeedAdapter adapter;
+
 
     @AfterViews
     public void init() {
@@ -55,18 +57,20 @@ public class Home extends AppCompatActivity {
 
         tvUsername.setText(username);
         tvBio.setText(bio);
-//        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
-//        mLayoutManager.setOrientation(RecyclerView.VERTICAL);
-//        rvFeed.setLayoutManager(mLayoutManager);
-//
-//        realm = Realm.getDefaultInstance();
-//
-//        RealmResults<User> list = realm.where(User.class)
-//                .findAll()
-//                .sort("name", Sort.ASCENDING);
-//
-//        adapter = new UserAdapter(this, list, true);
-//        rvFeed.setAdapter(adapter);
+
+
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        rvFeed.setLayoutManager(mLayoutManager);
+
+        realm = Realm.getDefaultInstance();
+
+        RealmResults<Thread> list = realm.where(Thread.class)
+                .findAll()
+                .sort("title", Sort.ASCENDING);
+
+        adapter = new FeedAdapter(this, list, true);
+        rvFeed.setAdapter(adapter);
 
         //spaghetti code pa to copy past lang for init
     }
