@@ -1,5 +1,6 @@
 package hotramen.apps.projectcs;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -9,6 +10,16 @@ public class User extends RealmObject {
 
     private String name;
     private String password;
+
+    private RealmList<Thread> threads;
+
+    public RealmList<Thread> getThreads() {
+        return threads;
+    }
+
+    public void setThreads(RealmList<Thread> threads) {
+        this.threads = threads;
+    }
 
     public String getUuid() {
         return uuid;
