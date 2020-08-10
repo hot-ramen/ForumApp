@@ -3,14 +3,17 @@
     package="hotramen.apps.projectcs">
 
     <application
+        android:name=".MyApp_"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PostThread_"></activity>
+        <activity android:name=".AdminHome_"></activity>
+        <activity android:name=".PostThread_" />
         <activity android:name=".Home_" />
+        <activity android:name=".EditActivity_" />
         <activity android:name=".Register_" />
         <activity android:name=".MainActivity_">
             <intent-filter>

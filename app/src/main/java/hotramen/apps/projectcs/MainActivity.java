@@ -80,7 +80,11 @@ public class MainActivity extends AppCompatActivity {
                 .findFirst();
 
 
-        if(result == 0){
+        if(username.equals("admin") && password.equals("123")){
+            AdminHome_.intent(this)
+                    .start();
+        }
+        else if(result == 0){
             Toast.makeText(getApplicationContext(), "User does not exist", Toast.LENGTH_LONG).show() ;
         }
         else {

@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -29,8 +31,12 @@ public class Home extends AppCompatActivity {
     @ViewById
     Button btnEditProf;
 
+
     @ViewById
-    Button btnSignOut;
+    TextView tvUsername;
+
+    @ViewById
+    TextView tvBio;
 
 
     Realm realm;
@@ -38,6 +44,17 @@ public class Home extends AppCompatActivity {
 
     @AfterViews
     public void init() {
+
+        SharedPreferences sharedPreferences = getSharedPreferences("login_info", MODE_PRIVATE);
+        String userID = sharedPreferences.getString("uuid", null);
+
+        User userLoggedIn = realm.where(User.class).equalTo("uuid", userID).findFirst();
+
+        String username = userLoggedIn.getName();
+        String bio = userLoggedIn.getBio();
+
+        tvUsername.setText(username);
+        tvBio.setText(bio);
 //        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
 //        mLayoutManager.setOrientation(RecyclerView.VERTICAL);
 //        rvFeed.setLayoutManager(mLayoutManager);
@@ -59,28 +76,25 @@ public class Home extends AppCompatActivity {
         finish();
     }
 
+    @Click(R.id.btnEditProf)
+    public void editprofile(){
+        SharedPreferences sharedPreferences = getSharedPreferences("login_info", MODE_PRIVATE);
+        String userID = sharedPreferences.getString("uuid", null);
 
-    public void delete(View view) {
-//        User user = (User) view.getTag();
-//
-//        // once an object is deleted you cant delete it again, check if isValid
-//        // this is needed since you can double tap a button very easily
-//        if (user.isValid())
-//        {
-//            realm.beginTransaction();
-//            user.deleteFromRealm();
-//            realm.commitTransaction();
-//        }
+        EditActivity_.intent(this)
+                .id(userID)
+                .start();
     }
 
-    public void edit(View view) {
-//        User userToEdit = (User) view.getTag();
-//        String id = userToEdit.getUuid();
-//
-//
-//        EditActivity_.intent(this)
-//                .id(id)
-//                .start();
-//    }
+    @Click(R.id.btnMakeTrd)
+    public void makethread(){
+        SharedPreferences sharedPreferences = getSharedPreferences("login_info", MODE_PRIVATE);
+        String userID = sharedPreferences.getString("uuid", null);
+
+        PostThread_.intent(this)
+                .author(userID)
+                .start();
     }
+
+
 }

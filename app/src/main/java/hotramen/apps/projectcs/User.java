@@ -10,6 +10,7 @@ public class User extends RealmObject {
 
     private String name;
     private String password;
+    private String bio;
 
     private RealmList<Thread> threads;
 
@@ -19,6 +20,14 @@ public class User extends RealmObject {
 
     public void setThreads(RealmList<Thread> threads) {
         this.threads = threads;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 
     public String getUuid() {
